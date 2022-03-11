@@ -12,7 +12,7 @@
 	<artifactId>retoddd</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>retoddd</name>
-	<description>Reto DDD de [...] de un restaurante</description>
+	<description>Reto DDD de un biblioteca</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
