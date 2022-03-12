@@ -1,7 +1,7 @@
 package uy.com.sofka.biblioteca.cliente.commands;
 
 import co.com.sofka.domain.generic.Command;
-import uy.com.sofka.biblioteca.cliente.value.ClienteId;
+import uy.com.sofka.biblioteca.value.ClienteId;
 import uy.com.sofka.biblioteca.cliente.value.SancionId;
 import uy.com.sofka.biblioteca.cliente.value.ObservacionSancion;
 

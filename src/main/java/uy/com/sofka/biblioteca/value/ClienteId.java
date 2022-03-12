@@ -1,4 +1,4 @@
-package uy.com.sofka.biblioteca.cliente.value;
+package uy.com.sofka.biblioteca.value;
 
 import co.com.sofka.domain.generic.Identity;
 

@@ -1,6 +1,7 @@
 package uy.com.sofka.biblioteca.cliente.events;
 
 import co.com.sofka.domain.generic.DomainEvent;
+import uy.com.sofka.biblioteca.cliente.value.MultaId;
 import uy.com.sofka.biblioteca.cliente.value.ObservacionSancion;
 import uy.com.sofka.biblioteca.cliente.value.SancionId;
 

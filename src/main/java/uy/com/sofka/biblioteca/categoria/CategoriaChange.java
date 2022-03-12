@@ -91,18 +91,26 @@ public class CategoriaChange extends EventChange {
     });
 
     apply((DescripcionBloqueModificada event) -> {
+      if(!categoria.bloque().identity().equals(event.getBloqueId()))
+        throw new IllegalArgumentException("El bloque no coincide con el de la categoria");
       categoria.bloque().modificarDescripcion(event.getDescripcion());
     });
 
     apply((PasilloBloqueAgregado event) -> {
+      if(!categoria.bloque().identity().equals(event.getBloqueId()))
+        throw new IllegalArgumentException("El bloque no coincide con el de la categoria");
     categoria.bloque().AgregarPasillo(event.getPasillo());
     });
 
     apply((PasilloBloqueEliminado event) -> {
+      if(!categoria.bloque().identity().equals(event.getBloqueId()))
+        throw new IllegalArgumentException("El bloque no coincide con el de la categoria");
       categoria.bloque().EliminarPasillo(event.getPasillo());
       });
 
     apply((CantidadEstanteriasBloqueModificada event) -> {
+      if(!categoria.bloque().identity().equals(event.getBloqueId()))
+        throw new IllegalArgumentException("El bloque no coincide con el de la categoria");
       categoria.bloque().modificarCantidadEstanterias(event.getCantidadEstanterias());
     });
   }

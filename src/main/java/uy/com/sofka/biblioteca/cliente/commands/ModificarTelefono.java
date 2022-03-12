@@ -1,15 +1,15 @@
 package uy.com.sofka.biblioteca.cliente.commands;
 
 import co.com.sofka.domain.generic.Command;
-import uy.com.sofka.biblioteca.cliente.value.ClienteId;
-import uy.com.sofka.biblioteca.cliente.value.Telefono;
+import uy.com.sofka.biblioteca.value.ClienteId;
+import uy.com.sofka.biblioteca.value.TelefonoCliente;
 
 public class ModificarTelefono extends Command {
   
   private final ClienteId clienteId;
-  private final Telefono telefono;
+  private final TelefonoCliente telefono;
 
-  public ModificarTelefono(ClienteId clienteId, Telefono telefono) {
+  public ModificarTelefono(ClienteId clienteId, TelefonoCliente telefono) {
     this.clienteId = clienteId;
     this.telefono = telefono;
   }
@@ -18,7 +18,7 @@ public class ModificarTelefono extends Command {
     return this.clienteId;
   }
 
-  public Telefono getTelefono() {
+  public TelefonoCliente getTelefono() {
     return this.telefono;
   }
 }

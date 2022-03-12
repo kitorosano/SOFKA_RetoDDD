@@ -9,17 +9,18 @@ import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
 import uy.com.sofka.biblioteca.cliente.events.*;
 import uy.com.sofka.biblioteca.cliente.value.*;
+import uy.com.sofka.biblioteca.value.*;
 
 public class Cliente extends AggregateEvent<ClienteId> {
-  protected Nombre nombre;
-  protected Telefono telefono;
-  protected Direccion direccion;
-  protected Cedula cedula;
+  protected NombreCliente nombre;
+  protected TelefonoCliente telefono;
+  protected DireccionCliente direccion;
+  protected CedulaCliente cedula;
   protected Set<Cuenta> cuentas;
   protected Set<Sancion> sanciones;
 
   /** Constructores */
-  public Cliente(ClienteId entityId, Nombre nombre, Telefono telefono, Direccion direccion, Cedula cedula) {
+  public Cliente(ClienteId entityId, NombreCliente nombre, TelefonoCliente telefono, DireccionCliente direccion, CedulaCliente cedula) {
     super(entityId);
     appendChange(new ClienteCreado(nombre, telefono, direccion, cedula)).apply(); //Crar obj Cliente
   }
@@ -36,17 +37,17 @@ public class Cliente extends AggregateEvent<ClienteId> {
   }
   
   /** Metodos */  
-  public void modificarNombre(Nombre nombre){
+  public void modificarNombre(NombreCliente nombre){
     Objects.requireNonNull(nombre);
     appendChange(new NombreModificado(nombre)).apply();
   }
 
-  public void actualizarDireccion(Direccion direccion){
+  public void modificarDireccion(DireccionCliente direccion){
     Objects.requireNonNull(direccion);
-    appendChange(new DireccionActualizada(direccion)).apply();
+    appendChange(new DireccionModificada(direccion)).apply();
   }
   
-  public void modificarTelefono(Telefono telefono){
+  public void modificarTelefono(TelefonoCliente telefono){
     Objects.requireNonNull(telefono);
     appendChange(new TelefonoModificado(telefono)).apply();
   }
@@ -90,19 +91,19 @@ public class Cliente extends AggregateEvent<ClienteId> {
 
 
   /** Getters */
-  public Nombre nombre() {
+  public NombreCliente nombre() {
     return nombre;
   }
 
-  public Direccion direccion() {
+  public DireccionCliente direccion() {
     return direccion;
   }
   
-  public Telefono telefono() {
+  public TelefonoCliente telefono() {
     return telefono;
   }
 
-  public Cedula cedula() {
+  public CedulaCliente cedula() {
     return cedula;
   }
 

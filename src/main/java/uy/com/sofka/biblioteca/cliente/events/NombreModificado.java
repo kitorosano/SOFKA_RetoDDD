@@ -1,17 +1,17 @@
 package uy.com.sofka.biblioteca.cliente.events;
 
 import co.com.sofka.domain.generic.DomainEvent;
-import uy.com.sofka.biblioteca.cliente.value.Nombre;
+import uy.com.sofka.biblioteca.value.NombreCliente;
 
 public class NombreModificado extends DomainEvent {
-  private final Nombre nombre;
+  private final NombreCliente nombre;
 
-  public NombreModificado(Nombre nombre) {
+  public NombreModificado(NombreCliente nombre) {
     super("sofka.cliente.modificarnombre");
     this.nombre = nombre;
   }
 
-  public Nombre getNombre() {
+  public NombreCliente getNombre() {
     return nombre;
   }
   

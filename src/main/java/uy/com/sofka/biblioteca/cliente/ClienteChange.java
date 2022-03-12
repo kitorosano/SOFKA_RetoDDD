@@ -9,14 +9,16 @@ public class ClienteChange extends EventChange {
 
     apply((ClienteCreado event) -> {
       cliente.nombre = event.getNombre();
+      cliente.direccion = event.getDireccion();
       cliente.telefono = event.getTelefono();
+      cliente.cedula = event.getCedula();
     });
     
     apply((NombreModificado event) -> {
       cliente.nombre = event.getNombre();
     });
 
-    apply((DireccionActualizada event) -> {
+    apply((DireccionModificada event) -> {
       cliente.direccion = event.getDireccion();
     });
 

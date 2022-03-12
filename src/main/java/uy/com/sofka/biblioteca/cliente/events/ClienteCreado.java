@@ -1,15 +1,15 @@
 package uy.com.sofka.biblioteca.cliente.events;
 
 import co.com.sofka.domain.generic.DomainEvent;
-import uy.com.sofka.biblioteca.cliente.value.*;
+import uy.com.sofka.biblioteca.value.*;
 
 public class ClienteCreado extends DomainEvent {
-  private final Nombre nombre;
-  private final Telefono telefono;
-  private final Direccion direccion;
-  private final Cedula cedula;
+  private final NombreCliente nombre;
+  private final TelefonoCliente telefono;
+  private final DireccionCliente direccion;
+  private final CedulaCliente cedula;
 
-  public ClienteCreado(Nombre nombre, Telefono telefono, Direccion direccion, Cedula cedula) {
+  public ClienteCreado(NombreCliente nombre, TelefonoCliente telefono, DireccionCliente direccion, CedulaCliente cedula) {
     super("sofka.cliente.clientecreado");
     this.nombre = nombre;
     this.telefono = telefono;
@@ -17,19 +17,19 @@ public class ClienteCreado extends DomainEvent {
     this.cedula = cedula;
   }
   
-  public Nombre getNombre() {
+  public NombreCliente getNombre() {
     return nombre;
   }
 
-  public Telefono getTelefono() {
+  public TelefonoCliente getTelefono() {
     return telefono;
   }
 
-  public Direccion getDireccion() {
+  public DireccionCliente getDireccion() {
     return direccion;
   }
 
-  public Cedula getCedula() {
+  public CedulaCliente getCedula() {
     return cedula;
   }
 }
