@@ -2,7 +2,6 @@ package uy.com.sofka.biblioteca.usecase.boleta;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import co.com.sofka.business.generic.BusinessException;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.support.RequestCommand;
 import uy.com.sofka.biblioteca.boleta.commands.CrearBoleta;

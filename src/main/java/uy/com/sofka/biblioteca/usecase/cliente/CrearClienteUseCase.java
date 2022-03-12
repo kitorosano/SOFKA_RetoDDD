@@ -1,9 +1,5 @@
 package uy.com.sofka.biblioteca.usecase.cliente;
 
-import java.util.Objects;
-
-import co.com.sofka.business.generic.BusinessException;
-import co.com.sofka.business.generic.UnexpectedException;
 import co.com.sofka.business.generic.UseCase;
 import co.com.sofka.business.support.RequestCommand;
 import co.com.sofka.business.support.ResponseEvents;

@@ -1,16 +1,10 @@
 package uy.com.sofka.biblioteca.usecase.cliente;
 
-import java.util.List;
-import java.util.Objects;
-
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import co.com.sofka.business.generic.BusinessException;
-import co.com.sofka.business.generic.UnexpectedException;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.support.RequestCommand;
-import co.com.sofka.domain.generic.DomainEvent;
 import uy.com.sofka.biblioteca.cliente.commands.CrearCliente;
 import uy.com.sofka.biblioteca.cliente.events.ClienteCreado;
 import uy.com.sofka.biblioteca.value.CedulaCliente;
@@ -46,32 +40,23 @@ public class CrearClienteUseCaseTest {
       Assertions.assertEquals("53017189", clienteCreado.getCedula().value());
   }
 
-  // @Test
-  // void errorClienteDuplicado() {
-  //   var command1 = new CrearCliente(
-  //           new ClienteId(),
-  //           new NombreCliente("Esteban"), 
-  //           new DireccionCliente("Roger Balet 2186"), 
-  //           new TelefonoCliente("092728300"), 
-  //           new CedulaCliente("53017189")
-  //   );
-  //   var command2 = new CrearCliente(
-  //           new ClienteId(),
-  //           new NombreCliente("Nicolas"), 
-  //           new DireccionCliente("Colon 2583"), 
-  //           new TelefonoCliente("47242449"), 
-  //           new CedulaCliente("36906905")
-  //   );
-  //   var useCase = new CrearClienteUseCase();
+  
+  @Test
+  void errorCampoVacioCliente() {
+      var useCase = new CrearClienteUseCase();
 
-  //   Assertions.assertThrows(UnexpectedException.class, () -> {
-  //     UseCaseHandler.getInstance()
-  //           .syncExecutor(useCase, new RequestCommand<>(command1))
-  //           .orElseThrow();
-  //     UseCaseHandler.getInstance()
-  //           .syncExecutor(useCase, new RequestCommand<>(command2))
-  //           .orElseThrow();
-  //   }, "No se ha creado el Cliente porque ya existe su cedula en el sistema");
-  // }  
-
+      Assertions.assertThrows(IllegalArgumentException.class, () -> {
+        UseCaseHandler.getInstance()
+            .syncExecutor(useCase, new RequestCommand<>(
+              new CrearCliente(
+                  new ClienteId(),
+                  new NombreCliente(""),  //campo vacio
+                  new DireccionCliente("Roger Balet 2186"), 
+                  new TelefonoCliente("092728300"), 
+                  new CedulaCliente("53017189")
+              )
+            ))
+            .orElseThrow();
+      }, "No se aceptan campos vacios en el Nombre");
+  }
 }

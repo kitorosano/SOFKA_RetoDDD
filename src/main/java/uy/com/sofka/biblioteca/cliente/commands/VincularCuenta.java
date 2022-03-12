@@ -34,7 +34,7 @@ public class VincularCuenta extends Command {
     return this.nombreUsuario;
   }
 
-  public CorreoCuenta getTelefono() {
+  public CorreoCuenta getCorreo() {
     return this.correo;
   }
 
