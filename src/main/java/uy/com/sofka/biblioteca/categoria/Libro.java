@@ -8,11 +8,11 @@ import uy.com.sofka.biblioteca.categoria.value.GeneroLibro;
 import uy.com.sofka.biblioteca.categoria.value.LibroId;
 import uy.com.sofka.biblioteca.categoria.value.TemaLibro;
 import uy.com.sofka.biblioteca.categoria.value.AcotacionLibro;
-import uy.com.sofka.biblioteca.categoria.value.AutorId;
 import uy.com.sofka.biblioteca.categoria.value.CopiasLibro;
-import uy.com.sofka.biblioteca.categoria.value.EditorialId;
 import uy.com.sofka.biblioteca.categoria.value.EstadoLibro;
 import uy.com.sofka.biblioteca.categoria.value.TituloLibro;
+import uy.com.sofka.biblioteca.value.AutorId;
+import uy.com.sofka.biblioteca.value.EditorialId;
 
 public class Libro extends Entity<LibroId> {
   protected EditorialId editorialId;

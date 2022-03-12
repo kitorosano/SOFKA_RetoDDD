@@ -7,12 +7,12 @@ import uy.com.sofka.biblioteca.categoria.value.LibroId;
 import uy.com.sofka.biblioteca.categoria.value.TemaLibro;
 import uy.com.sofka.biblioteca.categoria.value.CategoriaId;
 import uy.com.sofka.biblioteca.categoria.value.CopiasLibro;
-import uy.com.sofka.biblioteca.categoria.value.EditorialId;
 import uy.com.sofka.biblioteca.categoria.value.EstadoLibro;
 import uy.com.sofka.biblioteca.categoria.value.GeneroLibro;
 import uy.com.sofka.biblioteca.categoria.value.TituloLibro;
+import uy.com.sofka.biblioteca.value.AutorId;
+import uy.com.sofka.biblioteca.value.EditorialId;
 import uy.com.sofka.biblioteca.categoria.value.AcotacionLibro;
-import uy.com.sofka.biblioteca.categoria.value.AutorId;
 
 public class AgregarLibro extends Command {
   private final CategoriaId categoriaId;

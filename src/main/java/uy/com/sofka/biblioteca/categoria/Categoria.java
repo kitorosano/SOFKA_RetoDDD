@@ -9,6 +9,8 @@ import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
 import uy.com.sofka.biblioteca.categoria.events.*;
 import uy.com.sofka.biblioteca.categoria.value.*;
+import uy.com.sofka.biblioteca.value.AutorId;
+import uy.com.sofka.biblioteca.value.EditorialId;
 
 public class Categoria extends AggregateEvent<CategoriaId> {
   protected Nombre nombre;

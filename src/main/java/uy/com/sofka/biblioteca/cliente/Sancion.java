@@ -3,7 +3,7 @@ package uy.com.sofka.biblioteca.cliente;
 import java.util.Objects;
 
 import co.com.sofka.domain.generic.Entity;
-import uy.com.sofka.biblioteca.cliente.value.MultaId;
+import uy.com.sofka.biblioteca.boleta.value.MultaId;
 import uy.com.sofka.biblioteca.cliente.value.ObservacionSancion;
 import uy.com.sofka.biblioteca.cliente.value.SancionId;
 

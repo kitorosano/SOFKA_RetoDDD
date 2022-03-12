@@ -7,6 +7,7 @@ import java.util.Set;
 
 import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
+import uy.com.sofka.biblioteca.boleta.value.MultaId;
 import uy.com.sofka.biblioteca.cliente.events.*;
 import uy.com.sofka.biblioteca.cliente.value.*;
 import uy.com.sofka.biblioteca.value.*;
