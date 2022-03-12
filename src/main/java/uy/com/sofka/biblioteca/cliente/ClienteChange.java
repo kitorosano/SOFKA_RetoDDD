@@ -35,7 +35,7 @@ public class ClienteChange extends EventChange {
     });
 
     apply((SancionRetirada event) -> {
-      cliente.cuentas.removeIf(sancion -> sancion.identity().equals(event.getSancionId()));
+      cliente.sanciones.removeIf(sancion -> sancion.identity().equals(event.getSancionId()));
     });
     
     apply((ObservacionSancionModificada event) -> {

@@ -5,11 +5,11 @@ import uy.com.sofka.biblioteca.value.*;
 
 public class ClienteCreado extends DomainEvent {
   private final NombreCliente nombre;
-  private final TelefonoCliente telefono;
   private final DireccionCliente direccion;
+  private final TelefonoCliente telefono;
   private final CedulaCliente cedula;
 
-  public ClienteCreado(NombreCliente nombre, TelefonoCliente telefono, DireccionCliente direccion, CedulaCliente cedula) {
+  public ClienteCreado(NombreCliente nombre, DireccionCliente direccion, TelefonoCliente telefono, CedulaCliente cedula) {
     super("sofka.cliente.clientecreado");
     this.nombre = nombre;
     this.telefono = telefono;

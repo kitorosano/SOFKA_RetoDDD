@@ -12,7 +12,7 @@ public class CedulaCliente implements ValueObject<String> {
     this.value = Objects.requireNonNull(value).trim();
 
     if(!validarCi(this.value))
-      throw new IllegalArgumentException("La cedula ingresada es invalida");
+      throw new IllegalArgumentException("La cedula ingresada es invalida. Solo aceptamos cedulas reales");
   }
 
   private Boolean validarCi(String ci) {

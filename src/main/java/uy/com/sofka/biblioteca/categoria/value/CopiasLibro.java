@@ -14,6 +14,14 @@ public class CopiasLibro implements ValueObject<Integer> {
       throw new IllegalArgumentException("Las cantidad de copias de un libro no puede ser negativa.");
   }
 
+  public CopiasLibro generar(Integer value) {
+    return new CopiasLibro(this.value + value);
+  }
+
+  public CopiasLibro remover(Integer value) {
+      return new CopiasLibro(this.value - value);
+  }
+
   @Override
   public Integer value() {
     return value;

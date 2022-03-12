@@ -8,12 +8,12 @@ public class TelefonoCliente implements ValueObject<String> {
   private final String value;
 
   public TelefonoCliente(String value) {
-    this.value = Objects.requireNonNull(value).trim();
+    this.value = Objects.requireNonNull(value).replaceAll("\\s","");
 
     if(this.value.isBlank())
       throw new IllegalArgumentException("El telefono no puede estar vacio");
 
-    if(this.value.length() <= 8)
+    if(this.value.length() < 8)
       throw new IllegalArgumentException("El telefono debe tener minimo 8 caracteres");
       
     try {

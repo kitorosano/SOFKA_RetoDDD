@@ -62,11 +62,11 @@ public class Libro extends Entity<LibroId> {
   }
 
   public void GenerarCopias(CopiasLibro copias) {
-    // this.copias = 
+    this.copias = this.copias.generar(copias.value());
   }
   
   public void RemoverCopias(CopiasLibro copias) {
-    // this.copias = 
+    this.copias = this.copias.remover(copias.value());
   }
   
   //Getters

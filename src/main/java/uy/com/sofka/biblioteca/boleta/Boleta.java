@@ -44,9 +44,9 @@ public class Boleta extends AggregateEvent<BoletaId> {
     appendChange(new NecesidadModificada(necesidad)).apply();
   }
   
-  public void modificarFechaDevolucion(FechaDevolucion necesidad){
-    Objects.requireNonNull(necesidad);
-    appendChange(new FechaDevolucionModificada(necesidad)).apply();
+  public void modificarFechaDevolucion(FechaDevolucion fechaDevolucion){
+    Objects.requireNonNull(fechaDevolucion);
+    appendChange(new FechaDevolucionModificada(fechaDevolucion)).apply();
   }
 
   public void establecerMulta(MultaId multaId, CondicionesMulta condiciones, MontoMulta monto){

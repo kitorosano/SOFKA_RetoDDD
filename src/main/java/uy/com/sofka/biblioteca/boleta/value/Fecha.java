@@ -1,21 +1,29 @@
 package uy.com.sofka.biblioteca.boleta.value;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 import co.com.sofka.domain.generic.ValueObject;
 
-public class Fecha implements ValueObject<LocalDateTime> {
-  private final LocalDateTime value;
+public class Fecha implements ValueObject<String> {
+  private final LocalDate value;
+  private final String valueFormateado;
 
   public Fecha() {
-    this.value = LocalDateTime.now();
+    this.value = LocalDate.now();
+    this.valueFormateado = formatear();
+  }
+  
+  private String formatear(){
+    return this.value.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
   }
 
   @Override
-  public LocalDateTime value() {
-    return value;
+  public String value() {
+    return valueFormateado;
   }
+
 
   @Override
   public boolean equals(Object o) {
@@ -25,12 +33,13 @@ public class Fecha implements ValueObject<LocalDateTime> {
       return false;
     }
     Fecha fecha = (Fecha) o;
-    return Objects.equals(value, fecha.value);
+    return Objects.equals(value, fecha.value) && Objects.equals(valueFormateado, fecha.valueFormateado);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hashCode(value);
+    return Objects.hash(value, valueFormateado);
   }
+  
 
 }

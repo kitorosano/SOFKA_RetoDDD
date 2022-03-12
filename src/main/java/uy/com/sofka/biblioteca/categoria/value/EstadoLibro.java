@@ -5,18 +5,20 @@ import java.util.Objects;
 import co.com.sofka.domain.generic.ValueObject;
 
 public class EstadoLibro implements ValueObject<String> {
-  private final String value;
+  private final EstadoLibro.Type value;
 
-  public EstadoLibro(String value) {
-    this.value = Objects.requireNonNull(value).trim();
-
-    if(this.value.isBlank())
-      throw new IllegalArgumentException("El estado del libro no puede estar vacio");
+  public EstadoLibro(EstadoLibro.Type value) {
+    this.value = Objects.requireNonNull(value, "El estado de libro no puede estar vacio+");
   }
 
   @Override
   public String value() {
-    return value;
+    return value.name();
+  }
+
+  
+  public enum Type {
+    IMPECABLE, ROTO
   }
 
   @Override

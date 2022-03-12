@@ -14,16 +14,16 @@ import uy.com.sofka.biblioteca.value.*;
 
 public class Cliente extends AggregateEvent<ClienteId> {
   protected NombreCliente nombre;
-  protected TelefonoCliente telefono;
   protected DireccionCliente direccion;
+  protected TelefonoCliente telefono;
   protected CedulaCliente cedula;
   protected Set<Cuenta> cuentas;
   protected Set<Sancion> sanciones;
 
   /** Constructores */
-  public Cliente(ClienteId entityId, NombreCliente nombre, TelefonoCliente telefono, DireccionCliente direccion, CedulaCliente cedula) {
-    super(entityId);
-    appendChange(new ClienteCreado(nombre, telefono, direccion, cedula)).apply(); //Crar obj Cliente
+  public Cliente(ClienteId clienteId, NombreCliente nombre, DireccionCliente direccion, TelefonoCliente telefono, CedulaCliente cedula) {
+    super(clienteId);
+    appendChange(new ClienteCreado(nombre, direccion, telefono, cedula)).apply(); //Crar obj Cliente
   }
   
   private Cliente(ClienteId clienteId){

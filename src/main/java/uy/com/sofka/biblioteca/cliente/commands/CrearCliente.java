@@ -30,7 +30,7 @@ public class CrearCliente extends Command {
     return direccion;
   }
 
-  public TelefonoCliente getTelefonoCliente() {
+  public TelefonoCliente getTelefono() {
     return this.telefono;
   }
 
