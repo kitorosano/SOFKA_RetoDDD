@@ -17,7 +17,7 @@ public class CrearCategoriaUseCase extends UseCase<RequestCommand<CrearCategoria
     var categoria = new Categoria(
       command.getCategoriaId(), 
       command.getNombre()
-      );
+    );
 
     emit().onResponse(new ResponseEvents(categoria.getUncommittedChanges()));
   }

@@ -1,5 +1,9 @@
 package uy.com.sofka.biblioteca.cliente;
 
+import java.util.HashSet;
+import java.util.NoSuchElementException;
+import java.util.Objects;
+
 import co.com.sofka.domain.generic.EventChange;
 import uy.com.sofka.biblioteca.cliente.events.*;
 
@@ -12,6 +16,8 @@ public class ClienteChange extends EventChange {
       cliente.direccion = event.getDireccion();
       cliente.telefono = event.getTelefono();
       cliente.cedula = event.getCedula();
+      cliente.cuentas = new HashSet<Cuenta>();
+      cliente.sanciones = new HashSet<Sancion>();
     });
     
     apply((NombreModificado event) -> {
@@ -35,6 +41,8 @@ public class ClienteChange extends EventChange {
     });
 
     apply((SancionRetirada event) -> {
+      cliente.getSancionPorId(event.getSancionId())
+          .orElseThrow(() -> new IllegalArgumentException("No se encuentra la sancion del cliente"));
       cliente.sanciones.removeIf(sancion -> sancion.identity().equals(event.getSancionId()));
     });
     
@@ -46,14 +54,16 @@ public class ClienteChange extends EventChange {
 
     apply((CuentaVinculada event) -> {
       cliente.cuentas.add(new Cuenta(
-          event.getCuentaId(),
-          event.getNombreUsuarioCuenta(),
-          event.getCorreoCuenta(),
-          event.getProveedorCuenta()
+        event.getCuentaId(),
+        event.getNombreUsuarioCuenta(),
+        event.getCorreoCuenta(),
+        event.getProveedorCuenta()
       ));
     });
 
     apply((CuentaDesvinculada event) -> {
+      cliente.getCuentaPorId(event.getCuentaId())
+          .orElseThrow(() -> new IllegalArgumentException("No se encuentra la cuenta del cliente"));
       cliente.cuentas.removeIf(cuenta -> cuenta.identity().equals(event.getCuentaId()));
     });
 

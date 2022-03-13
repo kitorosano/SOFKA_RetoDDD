@@ -40,23 +40,4 @@ public class CrearClienteUseCaseTest {
       Assertions.assertEquals("53017189", clienteCreado.getCedula().value());
   }
 
-  
-  @Test
-  void errorCampoVacioCliente() {
-      var useCase = new CrearClienteUseCase();
-
-      Assertions.assertThrows(IllegalArgumentException.class, () -> {
-        UseCaseHandler.getInstance()
-            .syncExecutor(useCase, new RequestCommand<>(
-              new CrearCliente(
-                  new ClienteId(),
-                  new NombreCliente(""),  //campo vacio
-                  new DireccionCliente("Roger Balet 2186"), 
-                  new TelefonoCliente("092728300"), 
-                  new CedulaCliente("53017189")
-              )
-            ))
-            .orElseThrow();
-      }, "No se aceptan campos vacios en el Nombre");
-  }
 }

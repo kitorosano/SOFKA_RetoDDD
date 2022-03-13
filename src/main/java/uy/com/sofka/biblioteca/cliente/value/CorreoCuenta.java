@@ -1,6 +1,7 @@
 package uy.com.sofka.biblioteca.cliente.value;
 
 import java.util.Objects;
+import java.util.regex.Pattern;
 
 import co.com.sofka.domain.generic.ValueObject;
 
@@ -17,9 +18,15 @@ public class CorreoCuenta implements ValueObject<String> {
     if(this.value.length() <= 6)
       throw new IllegalArgumentException("El correo de la cuenta debe tener minimo 6 caracteres");
 
-    if(!value.matches("^[_A-Za-z8-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,)$"))
+    if(!this.isValid())
       throw new IllegalArgumentException("El correo de la cuenta no es valido");
     
+  }
+
+  private Boolean isValid() {
+    var p = Pattern.compile("^(?=.{1,64}@)[\\p{L}0-9\\+_-]+(\\.[\\p{L}0-9\\+_-]+)*@"
+    + "[^-][\\p{L}0-9\\+-]+(\\.[\\p{L}0-9\\+-]+)*(\\.[\\p{L}]{2,})$");
+    return p.matcher(this.value).find();
   }
 
   @Override

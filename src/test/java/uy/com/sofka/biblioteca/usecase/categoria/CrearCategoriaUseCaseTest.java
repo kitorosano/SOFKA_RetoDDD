@@ -28,7 +28,7 @@ public class CrearCategoriaUseCaseTest {
 
       var categoriaCreado = (CategoriaCreada) events.get(0);
 
-      Assertions.assertTrue(Objects.nonNull(categoriaCreado.getNombre().value()));
+      Assertions.assertEquals("Novelas", categoriaCreado.getNombre().value());
   }
 
 }

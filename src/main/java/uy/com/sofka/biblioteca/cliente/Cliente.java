@@ -113,7 +113,7 @@ public class Cliente extends AggregateEvent<ClienteId> {
   }
 
   protected Optional<Cuenta> getCuentaPorId(CuentaId cuentaId){
-    return cuentas().stream().filter(key -> key.identity().equals(cuentaId)).findFirst();
+    return cuentas().stream().filter(cuenta -> cuenta.identity().equals(cuentaId)).findFirst();
   }
 
   public Set<Sancion> sanciones() {
@@ -121,6 +121,6 @@ public class Cliente extends AggregateEvent<ClienteId> {
   }
 
   protected Optional<Sancion> getSancionPorId(SancionId sancionId){
-    return sanciones().stream().filter(key -> key.identity().equals(sancionId)).findFirst();
+    return sanciones().stream().filter(cuenta -> cuenta.identity().equals(sancionId)).findFirst();
   }
 }
