@@ -87,6 +87,8 @@ public class CategoriaChange extends EventChange {
     });
 
     apply((BloqueAsignado event) -> {
+      if(event.getPasillos().isEmpty())
+        throw new IllegalArgumentException("Los pasillos del bloque no pueden estar vacios");
       categoria.bloque = new Bloque(
           event.getBloqueId(),
           event.getDescripcion(),

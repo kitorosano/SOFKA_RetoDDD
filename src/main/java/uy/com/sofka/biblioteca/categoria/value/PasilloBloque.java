@@ -18,5 +18,21 @@ public class PasilloBloque implements ValueObject<Integer> {
   public Integer value() {
     return value;
   }
+
+  @Override
+    public boolean equals(Object o) {
+        if (o == this)
+            return true;
+        if (!(o instanceof PasilloBloque)) {
+            return false;
+        }
+        PasilloBloque pasilloBloque = (PasilloBloque) o;
+        return Objects.equals(value, pasilloBloque.value);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hashCode(value);
+  }
   
 }
