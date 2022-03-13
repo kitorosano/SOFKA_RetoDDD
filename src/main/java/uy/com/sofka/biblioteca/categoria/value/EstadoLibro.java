@@ -7,16 +7,18 @@ import co.com.sofka.domain.generic.ValueObject;
 public class EstadoLibro implements ValueObject<String> {
   private final EstadoLibro.Type value;
 
-  public EstadoLibro(EstadoLibro.Type value) {
-    this.value = Objects.requireNonNull(value, "El estado de libro no puede estar vacio+");
+  public EstadoLibro() {
+    this(Type.IMPECABLE);
   }
-
+  public EstadoLibro(EstadoLibro.Type value) {
+    this.value = Objects.requireNonNull(value, "El estado de libro no puede estar vacio");
+  }
+  
   @Override
   public String value() {
     return value.name();
   }
 
-  
   public enum Type {
     IMPECABLE, ROTO
   }

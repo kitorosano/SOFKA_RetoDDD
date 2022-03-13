@@ -19,7 +19,7 @@ public class CrearBoletaUseCaseTest {
             new BoletaId(),
             new Necesidad("Para estudiar una materia"),
             new Fecha(),
-            new FechaDevolucion(14, 3, 2022)
+            new FechaDevolucion(14, 3, 2023)
       );
     var useCase = new CrearBoletaUseCase();
 
@@ -32,7 +32,7 @@ public class CrearBoletaUseCaseTest {
 
     Assertions.assertEquals("Para estudiar una materia", boletaCreado.getNecesidad().value());
     Assertions.assertNotNull(boletaCreado.getFecha().value());
-    Assertions.assertEquals("14-03-2022", boletaCreado.getFechaDevolucion().value());
+    Assertions.assertEquals("14-03-2023", boletaCreado.getFechaDevolucion().value());
   }
 
   @Test

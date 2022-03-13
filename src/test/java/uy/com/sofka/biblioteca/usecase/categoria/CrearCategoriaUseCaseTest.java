@@ -1,7 +1,5 @@
 package uy.com.sofka.biblioteca.usecase.categoria;
 
-import java.util.Objects;
-
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import co.com.sofka.business.generic.UseCaseHandler;

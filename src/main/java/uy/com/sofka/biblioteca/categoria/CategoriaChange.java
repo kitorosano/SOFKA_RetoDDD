@@ -1,5 +1,7 @@
 package uy.com.sofka.biblioteca.categoria;
 
+import java.util.HashSet;
+
 import co.com.sofka.domain.generic.EventChange;
 import uy.com.sofka.biblioteca.categoria.events.*;
 
@@ -9,6 +11,7 @@ public class CategoriaChange extends EventChange {
 
     apply((CategoriaCreada event) -> {
       categoria.nombre = event.getNombre();
+      categoria.libros = new HashSet<Libro>();
     });
     
     apply((NombreModificado event) -> {
@@ -30,6 +33,8 @@ public class CategoriaChange extends EventChange {
     });
 
     apply((LibroQuitado event) -> {
+      categoria.getLibroPorId(event.getLibroId())
+          .orElseThrow(() -> new IllegalArgumentException("No se encuentra el libro de la categoria"));
       categoria.libros.removeIf(libro -> libro.identity().equals(event.getLibroId()));
     });
 

@@ -1,8 +1,6 @@
 package uy.com.sofka.biblioteca.cliente;
 
 import java.util.HashSet;
-import java.util.NoSuchElementException;
-import java.util.Objects;
 
 import co.com.sofka.domain.generic.EventChange;
 import uy.com.sofka.biblioteca.cliente.events.*;
