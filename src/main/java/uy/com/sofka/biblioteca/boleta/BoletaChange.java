@@ -1,5 +1,7 @@
 package uy.com.sofka.biblioteca.boleta;
 
+import java.util.HashSet;
+
 import co.com.sofka.domain.generic.EventChange;
 import uy.com.sofka.biblioteca.boleta.events.*;
 
@@ -11,6 +13,7 @@ public class BoletaChange extends EventChange {
       boleta.necesidad = event.getNecesidad();
       boleta.fecha = event.getFecha();
       boleta.fechaDevolucion = event.getFechaDevolucion();
+      boleta.items = new HashSet<Item>();
     });
     
     apply((NecesidadModificada event) -> {
@@ -79,6 +82,8 @@ public class BoletaChange extends EventChange {
     });
 
     apply((ItemRemovido event) -> {
+      boleta.getItemPorId(event.getItemId())
+          .orElseThrow(() -> new IllegalArgumentException("No se encuentra el item de la boleta"));
       boleta.items.removeIf(item -> item.identity().equals(event.getItemId()));
     });
 

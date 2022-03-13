@@ -12,14 +12,14 @@ public class AgregarItem extends Command {
   private final ItemId itemId;
   private final CategoriaId categoriaId;
   private final LibroId libroId;
-  private final CantidadItem titulo;
+  private final CantidadItem cantidad;
 
-  public AgregarItem(BoletaId boletaId, ItemId itemId, CategoriaId categoriaId, LibroId libroId, CantidadItem titulo) {
+  public AgregarItem(BoletaId boletaId, ItemId itemId, CategoriaId categoriaId, LibroId libroId, CantidadItem cantidad) {
     this.boletaId = boletaId;
     this.itemId = itemId;
     this.categoriaId = categoriaId;
     this.libroId = libroId;
-    this.titulo = titulo;
+    this.cantidad = cantidad;
   }
 
   public BoletaId getBoletaId() {
@@ -30,7 +30,7 @@ public class AgregarItem extends Command {
     return this.itemId;
   }
 
-  public CategoriaId getEditorialId() {
+  public CategoriaId getCategoriaId() {
     return this.categoriaId;
   }
 
@@ -39,7 +39,7 @@ public class AgregarItem extends Command {
   }
 
   public CantidadItem getCantidad() {
-    return this.titulo;
+    return this.cantidad;
   }
 
 }
